@@ -93,14 +93,6 @@ SELECT nota.NotaID, cliente.ClienteID, nota.valorNota, cliente.nomeCliente FROM 
 SELECT pedido.PedidoID, pedido.PedidoID, nomeProduto, ativoProduto, estoqueProduto FROM pedido INNER JOIN produto ON ( pedido.PedidoID = produto.ProdutoID ) WHERE produto.ativoProduto = 'sim'
 SELECT regiao.RegiaoID, ponto.PontoID, regiaoNome, pontoNome FROM regiao INNER JOIN ponto ON ( regiao.RegiaoID = ponto.PontoID ) WHERE pontoNome = 'Ponto 5'
 
-SELECT * FROM regiao ORDER BY regiaoNome ASC;
-SELECT * FROM vendedor ORDER BY nomeVendedor ASC;
-SELECT * FROM cliente ORDER BY nomeCliente ASC;
-
-SELECT nota.NotaID, cliente.ClienteID, nota.valorNota, cliente.nomeCliente FROM nota LEFT JOIN cliente ON ( nota.NotaID = cliente.ClienteID ) WHERE valorNota >= 20
-SELECT pedido.PedidoID, pedido.PedidoID, nomeProduto, ativoProduto, estoqueProduto FROM pedido INNER JOIN produto ON ( pedido.PedidoID = produto.ProdutoID ) WHERE produto.ativoProduto = 'sim'
-SELECT regiao.RegiaoID, ponto.PontoID, regiaoNome, pontoNome FROM regiao INNER JOIN ponto ON ( regiao.RegiaoID = ponto.PontoID ) WHERE pontoNome = 'Ponto 5'
-
 SELECT nomeVendedor FROM vendedor WHERE EXISTS (SELECT corVeiculo FROM veiculo WHERE corVeiculo = 'amarelo')
 SELECT nomeCliente FROM cliente WHERE EXISTS (SELECT valorNota FROM nota WHERE valorNota >= 20)
 SELECT regiaoNome FROM regiao WHERE EXISTS (SELECT pontoNome FROM ponto WHERE pontoNome = 'Ponto 5')
